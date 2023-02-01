@@ -1,0 +1,33 @@
+﻿<Window x:Class="CustomRadioButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomRadioButton"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:CommandViewModel x:Key="CmdViewMdl"/>
+    </Window.Resources>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Snack"/>
+            <local:CustRadio  x:Name="Radio" Height="100" InnerStroke="Red" OuterStroke="Black" Text="Jelly" IsChecked="True" GroupName="OneRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}"/>
+            <local:CustRadio  x:Name="Radio1" Height="100" Text="Choclate" IsChecked="False" GroupName="OneRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="Fruit"/>
+            <local:CustRadio  x:Name="Radio2" Height="100" InnerStroke="Coral" OuterStroke="SlateBlue" Text="Orange" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}"/>
+            <local:CustRadio  x:Name="Radio3" Height="100"  Text="Apple" IsChecked="True" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}"/>
+        </StackPanel>
+        <Border BorderBrush="LightSlateGray" BorderThickness="1">
+        <TextBlock x:Name="SelectedRad" Text="{Binding Status,Source={StaticResource CmdViewMdl}}" TextAlignment="Center" />
+        </Border>
+        <!-- why this won't update-->
+        <!---Reasons
+        1.that's due to absence Dependency property
+        2.Not Specifying Source for the Binding, though Given Data Context.
+        3.Imporper Notify Change
+        -->
+    </StackPanel>
+</Window>
