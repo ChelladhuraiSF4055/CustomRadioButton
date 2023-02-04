@@ -11,12 +11,12 @@ namespace CustomRadioButton
 {
     internal class CommandViewModel:INotifyPropertyChanged
     {
-        private static string status;
-        public static string Status { get { return status; } set { status = value; } }
+        private string status;
+        public st string Status { get { return status; } set { status = value; NotifyChange("Status"); } }
         private string unCheckStatus;
         public string UnCheckStatus { get { return unCheckStatus; } set { unCheckStatus = value;NotifyChange(nameof(UnCheckStatus)); } }
-        private static string imgSrc = null;
-        public static  string ImgSrc { get { return imgSrc; } set { imgSrc = value; } }
+        private string imgSrc = null;
+        public string ImgSrc { get { return imgSrc; } set { imgSrc = value; NotifyChange(nameof(ImgSrc)); } }
         private string unCheckImg;
         public string UnCheckImg { get { return unCheckImg; } set { unCheckImg = value; NotifyChange(nameof(unCheckImg)); } }
         public ICommand RadCommand { get; set; }   
@@ -42,7 +42,7 @@ namespace CustomRadioButton
             string tempString = par.Text;
             if((tempString != UnCheckStatus || Status is null))
             {
-                CommandViewModel.Status = tempString;
+                Status = tempString;
                 return true;
             }
             return false;
@@ -77,9 +77,9 @@ namespace CustomRadioButton
 
             var par = parameter as CustRadio;
             string tempString = par.Text;
-            if ((UnCheckStatus != Status || UnCheckStatus is null))
+            if ((tempString != Status || UnCheckStatus is null))
             {
-                UnCheckStatus = Status;
+                UnCheckStatus = tempString;
                 return true;
             }
             return false;

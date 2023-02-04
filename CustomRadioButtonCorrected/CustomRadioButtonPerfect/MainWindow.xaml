@@ -17,10 +17,10 @@
         </StackPanel>-->
         <StackPanel Orientation="Horizontal" >
             <Label Content="Fruit"/>
-            <local:CustRadio  x:Name="Radio1" Height="100" InnerStroke="Coral" OuterStroke="SlateBlue" Text="Orange" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}" CommandChanged="Radio1_CommandChanged"/>
-            <local:CustRadio  x:Name="Radio2" Height="100"  Text="Cherry" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}" CommandChanged="Radio1_CommandChanged"/>
-            <local:CustRadio  x:Name="Radio3" Height="100"  Text="Pineapple" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}" CommandChanged="Radio1_CommandChanged"/>
-            <local:CustRadio  x:Name="Radio4" Height="100"  Text="Papaya" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}" CommandChanged="Radio1_CommandChanged"/>
+            <local:CustRadio  x:Name="Radio1" Height="100" InnerStroke="Coral" OuterStroke="SlateBlue" Text="Orange" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}"/>
+            <local:CustRadio  x:Name="Radio2" Height="100"  Text="Cherry" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}"/>
+            <local:CustRadio  x:Name="Radio3" Height="100"  Text="Pineapple" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}"/>
+            <local:CustRadio  x:Name="Radio4" Height="100"  Text="Papaya" IsChecked="False" GroupName="TwoRadio" MyCommand="{Binding RadCommand,Source={StaticResource CmdViewMdl}}" UnChecked="{Binding UnRadCommand,Source={StaticResource CmdViewMdl}}"/>
         </StackPanel >
         <Border BorderBrush="LightSlateGray" BorderThickness="1">
             <StackPanel Orientation="Horizontal">
@@ -37,8 +37,8 @@
                 <Label.Content >
                     <StackPanel>
                             <TextBlock Text="Current" FontWeight="Bold"/>
-                            <TextBlock x:Name="SelectedRad"  TextAlignment="Center"/>
-                        <Image x:Name="Img" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock x:Name="SelectedRad" Text="{Binding Status,Source={StaticResource CmdViewMdl}}" TextAlignment="Center"/>
+                        <Image x:Name="Img" Source="{Binding ImgSrc,Source={StaticResource CmdViewMdl}}" HorizontalAlignment="Center" Stretch="Uniform"/>
                     </StackPanel>
                 </Label.Content>
             </Label>
